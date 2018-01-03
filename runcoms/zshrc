@@ -11,15 +11,85 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-alias clr='clear;echo "Currently logged in on $(tty), as $(whoami) in directory $(pwd)."'
-alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
+alias ls='ls -GFh'
+alias ll='ls -lartF'
+alias dirs='dirs -v'
+#alias qbast='ssh jgartland@bastion.qa.cashstar.net'
+#alias sbast='ssh jgartland@bastion.semi.cashstar.net'
+#alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias cashbot='./cashbot'
+alias cb='cashbot'
+#alias qalogtunnel='ssh -f jgartland@bastion.semi.cashstar.net -L 16306:qa-cashbot-tests.c1wuexf3bnjg.us-east-1.rds.amazonaws.com:3306 -N'
+#alias dbtunnelqa='ssh -f jgartland@bastion.qa.cashstar.net -L 23306:db1.qa.aws:3306 -N'
+#alias dbtunnelsemi='ssh -f jgartland@bastion.semi.cashstar.net -L 13306:db1.semi.aws:3306 -N'
+#alias dbconnqa='mysql -h 127.0.0.1 -u qa_user --port=23306 -p$DBPASSQA'
+#alias dbconnsemi='mysql -h 127.0.0.1 -u qa_user --port=13306 -p$DBPASSSEMI'
+#alias qalogdbconn='mysql -h 127.0.0.1 -u cashbot --port=16306 -p$QADBPASS'
+#alias killtunnel="ps -ax|grep ssh|egrep -ve grep -ve agent|awk '{print $1}'|xargs kill"
+alias aws='~/bin/aws'
+#alias sel='cd ~; java -jar selenium-server-standalone-3.0.0-beta3.jar; cd -'
+alias grep='grep --color=auto' # Always highlight grep search term
+alias ping='ping -c 5'      # Pings with 5 packets, not unlimited
+alias df='df -h'            # Disk free, in gigabytes, not bytes
+alias du='du -h -c'         # Calculate total disk usage for a folder
+alias sgi='sudo gem install' # Install ruby stuff
+alias clj='clj-env-dir'        # Clojure helper
+alias clr='clear;echo "Currently logged in on $(tty), as $(whoami) in directory $(pwd)."'
+alias tt='tt++ $HOME/.ttconf'
+alias svim="sudo vim" # Run vim as super user
+alias emc="emacsclient -n" # no blocking terminal waiting for edit
+
+alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+#alias brew="env PATH=${PATH/\/Users\/(yourusername)\/\.pyenv\/shims:/} brew"
+## See http://www.doughellmann.com/docs/virtualenvwrapper/
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PIP_VIRTUALENV_BASE=$WORKON_HOME
+#export PIP_REQUIRE_VIRTUALENV=true
+#export PIP_RESPECT_VIRTUALENV=true
+#export VIRTUALENV_USE_DISTRIBUTE=True
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=--no-site-packages
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+#export DBPASSQA=
+#export DBPASSSEMI=
+#export QADBPASS=
+#export PATH=$HOME/bin:$PATH
+#export GNUPG_BINARY='/usr/local/bin/gpg'
+#export NODE_PATH='/usr/local/Cellar/nvm/0.33.1/versions/node/v6.9.5/lib/node_modules'
+#export NVM_DIR="$(brew --prefix nvm)"; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+#export HG_ENSEMBLE_PATH_TO_REPOSITORIES=~/Development
+#export PYENV_ROOT=/usr/local/var/pyenv
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+## pip zsh completion start
+#function _pip_completion {
+#  local words cword
+#  read -Ac words
+#  read -cn cword
+#  reply=( $( COMP_WORDS="$words[*]" \
+#             COMP_CWORD=$(( cword-1 )) \
+#             PIP_AUTO_COMPLETE=1 $words[1] ) )
+#}
+#compctl -K _pip_completion pip
+## pip zsh completion end
+
+
+#source /usr/local/opt/autoenv/activate.sh
+
+#autoload -Uz promptinit
+#  promptinit
+#  prompt sorin
 
 export PYENV_ROOT=/usr/local/opt/pyenv
-export PATH="$PYENV_ROOT/bin:$PATH"
+#export PATH="$PYENV_ROOT/bin:$PATH"
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 source /Users/jgartland/PROJECTS/QA/cashbot/scripts/cashbot_defs.sh
