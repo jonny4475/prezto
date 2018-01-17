@@ -17,8 +17,8 @@ COMPLETION_WAITING_DOTS="true"
 alias ls='ls -GFh'
 alias ll='ls -lartF'
 alias dirs='dirs -v'
-#alias qbast='ssh jgartland@bastion.qa.cashstar.net'
-#alias sbast='ssh jgartland@bastion.semi.cashstar.net'
+alias qbast='ssh jgartland@bastion.qa.cashstar.net'
+alias sbast='ssh jgartland@bastion.semi.cashstar.net'
 #alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias cashbot='./cashbot'
 alias cb='cashbot'
@@ -75,7 +75,7 @@ export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 #compctl -K _pip_completion pip
 ## pip zsh completion end
 
-
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 #source /usr/local/opt/autoenv/activate.sh
 
 #autoload -Uz promptinit
@@ -93,3 +93,4 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 source /Users/jgartland/PROJECTS/QA/cashbot/scripts/cashbot_defs.sh
+for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file

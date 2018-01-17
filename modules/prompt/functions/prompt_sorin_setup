@@ -151,7 +151,7 @@ function prompt_sorin_setup {
     show_return+='%? '
   fi
   # Set python-info format
-  zstyle ':prezto:module:python:info:virtualenv' format '%f%F{10}(%v)%F{7} '
+  zstyle ':prezto:module:python:info:virtualenv' format '%f%F{10}(%v)%F{2} '
 
   # Get the async worker set up
   _sorin_cur_git_root=''
@@ -160,7 +160,7 @@ function prompt_sorin_setup {
   _prompt_sorin_pwd=''
 
   # Define prompts.
-  PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
+  PROMPT='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{3}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{1}'
   # '$python_info[virtualenv]${editor_info[overwrite]}%(?:: %F{1}'
   RPROMPT+=${show_return}
