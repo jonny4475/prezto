@@ -17,18 +17,12 @@ fi
 COMPLETION_WAITING_DOTS="true"
 
 alias dirs='dirs -v'
-alias qbast='ssh jgartland@bastion.qa.cashstar.net'
-alias sbast='ssh jgartland@bastion.semi.cashstar.net'
 #alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-alias cashbot='./cashbot'
-alias cb='cashbot'
 
-#alias qalogtunnel='ssh -f jgartland@bastion.semi.cashstar.net -L 16306:qa-cashbot-tests.c1wuexf3bnjg.us-east-1.rds.amazonaws.com:3306 -N'
-#alias dbtunnelqa='ssh -f jgartland@bastion.qa.cashstar.net -L 23306:db1.qa.aws:3306 -N'
-#alias dbtunnelsemi='ssh -f jgartland@bastion.semi.cashstar.net -L 13306:db1.semi.aws:3306 -N'
-#alias dbconnqa='mysql -h 127.0.0.1 -u qa_user --port=23306 -p$DBPASSQA'
-#alias dbconnsemi='mysql -h 127.0.0.1 -u qa_user --port=13306 -p$DBPASSSEMI'
-#alias qalogdbconn='mysql -h 127.0.0.1 -u cashbot --port=16306 -p$QADBPASS'
+#alias a_tunnel='ssh -f <user>@<remote url> -L 16306:<resource url>:3306 -N'
+#alias b_tunnel='ssh -f <user>@<url through remote> -L 23306:db1.qa.aws:3306 -N'
+#alias c_tunnel='ssh -f <user>@<url> -L 13306:db1.semi.aws:3306 -N'
+#alias dbconn='mysql -h 127.0.0.1 -u <username> --port=<port i.e. <23306> -p'
 #alias killtunnel="ps -ax|grep ssh|egrep -ve grep -ve agent|awk '{print $1}'|xargs kill"
 
 alias aws='~/bin/aws'
